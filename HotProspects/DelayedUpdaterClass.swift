@@ -12,6 +12,7 @@ import Foundation
 class DelayedUpdater: ObservableObject {
     var value = 0 {
         willSet {
+            //pushes changes without the @Published property wrapper
             objectWillChange.send()
         }
     }

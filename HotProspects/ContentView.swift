@@ -11,28 +11,38 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var selectedTab = 0
-    @ObservedObject var updater = DelayedUpdater()
+//    @ObservedObject var updater = DelayedUpdater()
+    @State private var backColor = Color.red
     
     var body: some View {
-        Text("Value is: \(updater.value)")
-//        Text("Hello, World!")
-//            .onAppear {
-//                self.fetchData(from: "https://www.apple.com") { (result) in
-//                    switch result {
-//                    case .success(let str) :
-//                        print(str)
-//                    case .failure(let error) :
-//                        switch error {
-//                        case .badURL :
-//                            print("Bad url")
-//                        case .requestFailed :
-//                            print("Bad url")
-//                        case .unknown :
-//                            print("Unknown error")
-//                        }
-//                    }
-//                }
-//        }
+        VStack {
+            Text("Hello, World!")
+            .padding()
+            .background(backColor)
+            
+            Text("Change color")
+            .padding()
+                .contextMenu {
+                    Button(action: {
+                        self.backColor = .red
+                    }) {
+                        Text("Red")
+                    }
+                    
+                    Button(action: {
+                        self.backColor = .green
+                    }) {
+                        Text("Green")
+                    }
+                    
+                    Button(action: {
+                        self.backColor = .blue
+                    }) {
+                        Text("Blue")
+                    }
+            }
+            
+        }
     }
     
     func fetchData(from urlString: String, completion: @escaping(Result<String, NetworkError>) -> Void) {
