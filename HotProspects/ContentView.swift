@@ -11,26 +11,28 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var selectedTab = 0
+    @ObservedObject var updater = DelayedUpdater()
     
     var body: some View {
-        Text("Hello, World!")
-            .onAppear {
-                self.fetchData(from: "https://www.apple.com") { (result) in
-                    switch result {
-                    case .success(let str) :
-                        print(str)
-                    case .failure(let error) :
-                        switch error {
-                        case .badURL :
-                            print("Bad url")
-                        case .requestFailed :
-                            print("Bad url")
-                        case .unknown :
-                            print("Unknown error")
-                        }
-                    }
-                }
-        }
+        Text("Value is: \(updater.value)")
+//        Text("Hello, World!")
+//            .onAppear {
+//                self.fetchData(from: "https://www.apple.com") { (result) in
+//                    switch result {
+//                    case .success(let str) :
+//                        print(str)
+//                    case .failure(let error) :
+//                        switch error {
+//                        case .badURL :
+//                            print("Bad url")
+//                        case .requestFailed :
+//                            print("Bad url")
+//                        case .unknown :
+//                            print("Unknown error")
+//                        }
+//                    }
+//                }
+//        }
     }
     
     func fetchData(from urlString: String, completion: @escaping(Result<String, NetworkError>) -> Void) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		407364C723F2485500E46504 /* DelayedUpdaterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407364C623F2485500E46504 /* DelayedUpdaterClass.swift */; };
 		40FD727023ED05140024F805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD726F23ED05140024F805 /* AppDelegate.swift */; };
 		40FD727223ED05140024F805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD727123ED05140024F805 /* SceneDelegate.swift */; };
 		40FD727423ED05140024F805 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD727323ED05140024F805 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		407364C623F2485500E46504 /* DelayedUpdaterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedUpdaterClass.swift; sourceTree = "<group>"; };
 		40FD726C23ED05140024F805 /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40FD726F23ED05140024F805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40FD727123ED05140024F805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				40FD727A23ED051C0024F805 /* LaunchScreen.storyboard */,
 				40FD727D23ED051C0024F805 /* Info.plist */,
 				40FD727723ED051C0024F805 /* Preview Content */,
+				407364C623F2485500E46504 /* DelayedUpdaterClass.swift */,
 			);
 			path = HotProspects;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				40FD727023ED05140024F805 /* AppDelegate.swift in Sources */,
 				40FD727223ED05140024F805 /* SceneDelegate.swift in Sources */,
 				40FD727423ED05140024F805 /* ContentView.swift in Sources */,
+				407364C723F2485500E46504 /* DelayedUpdaterClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
