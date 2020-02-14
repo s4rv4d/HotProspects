@@ -7,64 +7,34 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
-
-    @State private var selectedTab = 0
-//    @ObservedObject var updater = DelayedUpdater()
-    @State private var backColor = Color.red
     
     var body: some View {
         VStack {
-            Text("Hello, World!")
-            .padding()
-            .background(backColor)
-            
-            Text("Change color")
-            .padding()
-                .contextMenu {
-                    Button(action: {
-                        self.backColor = .red
-                    }) {
-                        Text("Red")
+            Button("Request permission") {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+                    if success {
+                        print("All Set!")
+                    } else if let error = error {
+                        print(error.localizedDescription)
                     }
-                    
-                    Button(action: {
-                        self.backColor = .green
-                    }) {
-                        Text("Green")
-                    }
-                    
-                    Button(action: {
-                        self.backColor = .blue
-                    }) {
-                        Text("Blue")
-                    }
-            }
-            
-        }
-    }
-    
-    func fetchData(from urlString: String, completion: @escaping(Result<String, NetworkError>) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(.failure(.badURL))
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            //the task has completed push work to main thread
-            DispatchQueue.main.async {
-                if let data = data {
-                    //deocde to string
-                    let stringData = String(decoding: data, as: UTF8.self)
-                    completion(.success(stringData))
-                } else if error != nil {
-                    completion(.failure(.requestFailed))
-                } else {
-                    completion(.failure(.unknown))
                 }
             }
-        }.resume()
+            
+            Button("Schdule notification") {
+                print("SSSSSSS!!!!!!")
+                let content = UNMutableNotificationContent()
+                content.title = "Feed the Cat"
+                content.subtitle = "It is hungry"
+                content.sound = UNNotificationSound.default
+                
+                let timeInterval = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let unReq = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeInterval)
+                UNUserNotificationCenter.current().add(unReq)
+            }
+        }
     }
 }
 
